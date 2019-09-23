@@ -20,3 +20,7 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+    parameters:
+        env(DATABASE_URL): 'mysql://root:Labas123456@db:3306/nfq'
+        database_user: root
+        database_password: Labas123456
