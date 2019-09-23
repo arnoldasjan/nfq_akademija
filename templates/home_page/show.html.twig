@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{client.firstname}} Time Remaining{% endblock %}
+
+{% block body %}
+    {% if  date( visit[0].createdAt | date_modify("+ " ~ avgtime ~ "seconds")|date('Y-m-d H:i:s')) > date("now"|date('Y-m-d H:i:s'))%}
+        {% set difference = date( visit[0].createdAt | date_modify("+ " ~ avgtime ~ "seconds")|date('Y-m-d H:i:s')).diff(date("now"|date('Y-m-d H:i:s'))) %}
+    {% else %}
+        {% set difference = date("now"|date('Y-m-d H:i:s')).diff(date("now"|date('Y-m-d H:i:s'))) %}
+    {% endif %}
+    <div class="col-12 mt-3">
+        <meta http-equiv="refresh" content="5"/>
+        <h3>Hello, {{ client.firstname }}</h3>
+        <br>
+        <h3>Estimated time remaining until your visit:</h3>
+        <h2>{{ difference|date('%H:%I:%S') }}</h2>
+{#        <a class="btn btn-secondary mr-2" href="#" role="button">Postpone Visit</a><a class="btn btn-danger" href="{{ path('servedClient', {'client': client }) }}" role="button">Cancel Visit</a>#}
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hospital{% endblock %}
+
+{% block body %}
+    <meta http-equiv="refresh" content="5"/>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Age</th>
+            <th scope="col">Specialist Needed</th>
+            <th scope="col">Estimated Time Remaining</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            {% if  date(visits[ loop.index0 ].createdAt | date_modify("+ " ~ serviceTimes[ client.specialist.id - 1].service_avg ~ "seconds")|date('Y-m-d H:i:s')) > date("now"|date('Y-m-d H:i:s'))%}
+                {% set difference = date(visits[ loop.index0 ].createdAt | date_modify("+ " ~ serviceTimes[ client.specialist.id - 1].service_avg ~ "seconds")|date('Y-m-d H:i:s')).diff(date("now"|date('Y-m-d H:i:s'))) %}
+            {% else %}
+                {% set difference = date("now"|date('Y-m-d H:i:s')).diff(date("now"|date('Y-m-d H:i:s'))) %}
+            {% endif %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.firstname }}</td>
+            <td>{{ client.surname }}</td>
+            <td>{{ client.age }}</td>
+            <td>{{ client.specialist }}</td>
+            <td>{{ difference|date('%H:%I:%S') }}</td>
+{#            <td>{{ visits[ loop.index0 ].createdAt|date('Y-m-d H:i:s') ~ " " ~ visits[ loop.index0 ].createdAt | date_modify("+ " ~ serviceTimes[ client.specialist.id - 1].service_avg ~ "seconds")|date('Y-m-d H:i:s') }}</td>#}
+        </tr>
+        {%  endfor %}
+        </tbody>
+    </table>
+{% endblock %}

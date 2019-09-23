@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialist Panel{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Age</th>
+            <th scope="col">Specialist Needed</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.firstname }}</td>
+                <td>{{ client.surname }}</td>
+                <td>{{ client.age }}</td>
+                <td>{{ client.specialist }}</td>
+                <td><a class="btn btn-success mr-3" href="{{ path('servedClient', {'id': client.id }) }}" role="button">Mark As Served</a></td>
+            </tr>
+        {%  endfor %}
+        </tbody>
+    </table>
+{% endblock %}

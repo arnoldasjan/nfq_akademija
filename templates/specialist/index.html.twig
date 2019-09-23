@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialist Panel{% endblock %}
+
+{% block body %}
+    <div class="dropdown ml-3 mt-3">
+        <h1>Select Your Title</h1>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Specialist
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {% for specialist in specialists %}
+                <a class="dropdown-item" href="specialist/{{ specialist.id }}">{{ specialist.title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

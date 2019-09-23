@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialists List{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for specialist in specialists %}
+            <tr>
+                <td>{{ specialist.id }}</td>
+                <td>{{ specialist.title }}</td>
+            </tr>
+        {%  endfor %}
+        </tbody>
+    </table>
+{% endblock %}
