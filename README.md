@@ -1,6 +1,6 @@
 # NFQ Akademijos atrankos užduotis
 
-Projektas buvo atliktas naudojant Symfony framework ir MySQL duombazę (prisijungimai config.php faile). Buvo parinkta ligoninės sistemos tema.
+Projektas buvo atliktas naudojant Symfony framework ir MySQL duombazę (prisijungimai config.php arba .env faile). Buvo parinkta ligoninės sistemos tema.
 
 - Įėjus į pradinį puslapį matoma švieslentė (lightboard).
 - Naujas klientas įvedamas skiltyje "New Client".
