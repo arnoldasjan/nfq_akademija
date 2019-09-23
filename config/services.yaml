@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    DATABASE_HOST: db
+    DATABASE_HOST: localhost
     DATABASE_USER: root
     DATABASE_PASSWORD: Labas123456
 

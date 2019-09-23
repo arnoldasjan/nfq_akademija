@@ -21,6 +21,6 @@ doctrine:
                 prefix: 'App\Entity'
                 alias: App
 parameters:
-    env(DATABASE_URL): 'mysql://root:Labas123456@db:3306/nfq'
+    env(DATABASE_URL): 'mysql://root:Labas123456@localhost:3306/nfq'
     database_user: root
     database_password: Labas123456
