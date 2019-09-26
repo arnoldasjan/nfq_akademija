@@ -4,7 +4,7 @@ doctrine:
         charset: utf8
         server_version: ~
         default_table_options: ~
-        url: '%env(resolve:HEROKU_POSTGRESQL_GOLD_URL)%'
+        url: '%env(resolve:DATABASE_URL)%'
 
     orm:
         auto_generate_proxy_classes: false
