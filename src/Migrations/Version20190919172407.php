@@ -19,7 +19,7 @@ final class Version20190919172407 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        $this->addSql('CREATE TABLE specialist (id SERIAL AUTO_INCREMENT NOT NULL PRIMARY KEY, title VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE specialist (id SERIAL NOT NULL PRIMARY KEY, title VARCHAR(255) NOT NULL)');
     }
 
     public function down(Schema $schema) : void

@@ -19,7 +19,7 @@ final class Version20190922124052 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        $this->addSql('CREATE TABLE visit (id SERIAL AUTO_INCREMENT NOT NULL PRIMARY KEY , event VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE visit (id SERIAL NOT NULL PRIMARY KEY , event VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL)');
     }
 
     public function down(Schema $schema) : void
