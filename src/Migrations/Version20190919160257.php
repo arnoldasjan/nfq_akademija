@@ -19,11 +19,11 @@ final class Version20190919160257 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        $this->addSql('ALTER TABLE client ADD added_time DATETIME DEFAULT NULL, ADD specialist_needed INT NOT NULL, CHANGE serviced serviced TINYINT(1) DEFAULT 0');
+        $this->addSql('ALTER TABLE client ADD added_time DATETIME DEFAULT NULL, ADD specialist_needed INT NOT NULL, CHANGE serviced serviced boolean DEFAULT false');
     }
 
     public function down(Schema $schema) : void
     {
-        $this->addSql('ALTER TABLE client DROP added_time, DROP specialist_needed, CHANGE serviced serviced TINYINT(1) DEFAULT NULL');
+        $this->addSql('ALTER TABLE client DROP added_time, DROP specialist_needed, CHANGE serviced serviced boolean DEFAULT NULL');
     }
 }
