@@ -135,7 +135,7 @@ class SpecialistController extends AbstractController
                 from (
                          select t.client_id, t.specialist_id, v.created_at, title, time_diff
                          from (
-                                  select client_id, visit.specialist_id, s.title, created_at, timestampdiff(second , lag(created_at) over (partition by client_id order by client_id), created_at) as time_diff
+                                  select client_id, visit.specialist_id, s.title, created_at, extract(epoch from(created_at-lag(created_at) over (partition by client_id order by client_id))) as time_diff
                                   from visit
                                            left join client c on visit.client_id = c.id
                                            left join specialist s on c.specialist_id = s.id
