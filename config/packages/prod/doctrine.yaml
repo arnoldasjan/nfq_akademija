@@ -1,4 +1,8 @@
 doctrine:
+    dbal:
+        driver: 'pdo_pgsql'
+        url: '%env(resolve:HEROKU_POSTGRESQL_GOLD_URL)%'
+
     orm:
         auto_generate_proxy_classes: false
         metadata_cache_driver:
