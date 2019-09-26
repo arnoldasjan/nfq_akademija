@@ -1,6 +1,9 @@
 doctrine:
     dbal:
         driver: 'pdo_pgsql'
+        charset: utf8
+        server_version: ~
+        default_table_options: ~
         url: '%env(resolve:HEROKU_POSTGRESQL_GOLD_URL)%'
 
     orm:
