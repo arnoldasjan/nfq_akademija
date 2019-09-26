@@ -24,6 +24,6 @@ final class Version20190922132727 extends AbstractMigration
 
     public function down(Schema $schema) : void
     {
-        $this->addSql('ALTER TABLE client ADD added_time DATETIME DEFAULT NULL');
+        $this->addSql('ALTER TABLE client ADD added_time timestamp DEFAULT NULL');
     }
 }
