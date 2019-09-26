@@ -16,5 +16,11 @@
         <property name="serverTimezone" value="Europe/Helsinki" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="dfc6o5dct7637i@ec2-176-34-237-141.eu-west-1.compute.amazonaws.com" uuid="632444bc-6418-4594-99f3-e941d60a5d84">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-176-34-237-141.eu-west-1.compute.amazonaws.com:5432/dfc6o5dct7637i</jdbc-url>
+    </data-source>
   </component>
 </project>
