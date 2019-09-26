@@ -24,7 +24,7 @@ class ServiceTimeCalculator {
                 from (
                 select client_id, specialist_id, time_diff
                 from (
-                select client_id, visit.specialist_id, created_at, extract(epoch from(created_at-lag(created_at) over (partition by client_id order by client_id))) as time_diff
+                select client_id, visit.specialist_id, created_at, extract(epoch from(created_at-lag(created_at) over (partition by client_id order by client_id, created_at))) as time_diff
                 from visit
                 left join client c on visit.client_id = c.id
                 where serviced is not null ) t
@@ -44,7 +44,7 @@ class ServiceTimeCalculator {
                 from (
                          select client_id, specialist_id, time_diff
                          from (
-                                  select client_id, visit.specialist_id, created_at, extract(epoch from(created_at-lag(created_at) over (partition by client_id order by client_id))) as time_diff
+                                  select client_id, visit.specialist_id, created_at, extract(epoch from(created_at-lag(created_at) over (partition by client_id order by client_id, created_at))) as time_diff
                                   from visit
                                            left join client c on visit.client_id = c.id
                                   where serviced is not null and c.specialist_id=:specId ) t
